@@ -1,7 +1,10 @@
-#vpc module
-This module is developed for course joindevops. Porjects inside joindevops follows this modlues to create their vPC
+# VPC Module
+This module is developed for joindevops company. Projects inside joindevops follows this module to create their VPC.
 
 ## Inputs
-* project ( required ) - user should specify their project name
-* environment ( required ) - users should speicfy their enviromnent
-* cidr_block ( optionsl ) - user can provide theri CIDR block. Default is 10.0.0.0/16
+* project (required) - Users should specify their project name
+* environment (required) - Users should specify their environment
+* cidr_block (optional) - Users can provide their CIDR block. Default is 10.0.0.0/16
+
+## Outputs
+* vpc_id - Exports VPC ID created
