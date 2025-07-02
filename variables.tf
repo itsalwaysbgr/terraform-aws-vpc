@@ -20,30 +20,39 @@ variable "igw_tags" {
   default = {}
 }
 
+# Correct CIDR Blocks: List of Strings
 variable "public_subnet_cidrs" {
-  type = list(string)
+  type    = list(string)
+  default = []
 }
 
+variable "private_subnet_cidrs" {
+  type    = list(string)
+  default = []
+}
 
+variable "database_subnet_cidrs" {
+  type    = list(string)
+  default = []
+}
+
+# Subnet Tags for Each Subnet Type
 variable "public_subnet_tags" {
   type    = map(string)
   default = {}
 }
 
-variable "private_subnet_cidrs" {
-  type = list(string)
-}
+
+#if user doesnt want to use tags then default = {} is mentioned 
+# else default = {} will be removed 
+# which goes as variable "private_subnet_tags" { type = map(string)}
+# now the above private_subnet_tags becomes mandatory
 
 
 variable "private_subnet_tags" {
   type    = map(string)
   default = {}
 }
-
-variable "database_subnet_cidrs" {
-  type = list(string)
-}
-
 
 variable "database_subnet_tags" {
   type    = map(string)
@@ -68,12 +77,15 @@ variable "public_route_table_tags" {
 variable "private_route_table_tags" {
   type    = map(string)
   default = {}
+
 }
+
 
 variable "database_route_table_tags" {
   type    = map(string)
   default = {}
 }
+
 
 variable "is_peering_required" {
   default = false
